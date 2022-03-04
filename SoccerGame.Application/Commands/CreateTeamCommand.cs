@@ -10,12 +10,12 @@ namespace SoccerGame.Application.Commands
 {
     public class CreateTeamCommand : IRequest<TeamResponse>
     {
-        public string Name
+        public string TeamName
         {
             get;
             set;
         }
-        public string Image
+        public string TeamImage
         {
             get;
             set;

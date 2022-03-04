@@ -5,13 +5,27 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Handlers\NewFolder1\**" />
+    <Compile Remove="Handlers\NewFolder\**" />
+    <EmbeddedResource Remove="Handlers\NewFolder1\**" />
+    <EmbeddedResource Remove="Handlers\NewFolder\**" />
+    <None Remove="Handlers\NewFolder1\**" />
+    <None Remove="Handlers\NewFolder\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="11.0.1" />
     <PackageReference Include="MediatR" Version="10.0.0" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.14">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\SoccerGame.Core\SoccerGame.Core.csproj" />
+    <ProjectReference Include="..\SoccerGame.Infrastructure\SoccerGame.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

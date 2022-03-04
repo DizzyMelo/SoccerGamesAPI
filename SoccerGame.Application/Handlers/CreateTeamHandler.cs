@@ -22,14 +22,14 @@ namespace SoccerGame.Application.Handlers
         }
         public async Task<TeamResponse> Handle(CreateTeamCommand request, CancellationToken cancellationToken)
         {
-            var employeeEntitiy = TeamMapper.Mapper.Map<Team>(request);
-            if (employeeEntitiy is null)
+            var teamEntitiy = TeamMapper.Mapper.Map<Team>(request);
+            if (teamEntitiy is null)
             {
                 throw new ApplicationException("Issue with mapper");
             }
-            var newEmployee = await _teamRepo.AddAsync(employeeEntitiy);
-            var employeeResponse = TeamMapper.Mapper.Map<TeamResponse>(newEmployee);
-            return employeeResponse;
+            var newTeam = await _teamRepo.AddAsync(teamEntitiy);
+            var teamResponse = TeamMapper.Mapper.Map<TeamResponse>(newTeam);
+            return teamResponse;
         }
     }
 }

@@ -20,6 +20,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore.Design;
 
 namespace SoccerGame.API
 {
@@ -37,7 +38,16 @@ namespace SoccerGame.API
         {
 
             services.AddControllers();
-            services.AddDbContext<TeamContext>(m => m.UseSqlServer(Configuration.GetConnectionString("SoccerGameDB")), ServiceLifetime.Singleton);
+            services.AddDbContext<TeamContext>(m => m.UseSqlServer(Configuration.GetConnectionString("SoccerGameDB"), 
+                sqlServerOptionsAction: sqlOptions =>
+                {
+                    sqlOptions.EnableRetryOnFailure(
+                        maxRetryCount:3,
+                        maxRetryDelay: TimeSpan.FromSeconds(5),
+                        errorNumbersToAdd: null
+                    );
+                }
+                ), ServiceLifetime.Singleton);
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "SoccerGame.API", Version = "v1" });

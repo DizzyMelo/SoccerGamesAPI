@@ -17,12 +17,12 @@ namespace SoccerGame.Core.Entities
             get;
             set;
         }
-        public string Name
+        public string TeamName
         {
             get;
             set;
         }
-        public string Image
+        public string TeamImage
         {
             get;
             set;

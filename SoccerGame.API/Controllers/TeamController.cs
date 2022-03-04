@@ -28,7 +28,7 @@ namespace SoccerGame.API.Controllers
         }
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<ActionResult<TeamResponse>> CreateEmployee([FromBody] CreateTeamCommand command)
+        public async Task<ActionResult<TeamResponse>> CreateTeam([FromBody] CreateTeamCommand command)
         {
             var result = await _mediator.Send(command);
             return Ok(result);

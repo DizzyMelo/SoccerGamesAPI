@@ -15,7 +15,7 @@ namespace SoccerGame.Infrastructure.Repositories
         public TeamRepository(TeamContext teamContext) : base(teamContext) { }
         public async Task<IEnumerable<Team>> GetTeamByName(string name)
         {
-            return await _teamContext.Teams.Where(m => m.Name == name).ToListAsync();
+            return await _teamContext.Teams.Where(m => m.TeamName == name).ToListAsync();
         }
     }
 }
