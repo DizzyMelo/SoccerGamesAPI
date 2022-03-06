@@ -17,6 +17,7 @@ namespace SoccerGame.Application.Mappers
         {
             CreateMap<Team, TeamResponse>().ReverseMap();
             CreateMap<Team, CreateTeamCommand>().ReverseMap();
+            CreateMap<Team, GetTeamByNameCommand>().ReverseMap();
         }
     }
 }

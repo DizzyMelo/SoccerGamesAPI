@@ -26,6 +26,14 @@ namespace SoccerGame.API.Controllers
         {
             return await _mediator.Send(new GetAllTeamQuery());
         }
+
+        //[HttpGet]
+        //[ProducesResponseType(StatusCodes.Status200OK)]
+        //public async Task<Team> GetTeamByName()
+        //{
+        //    return await _mediator.Send(new GetTeamByNameQuery());
+        //}
+
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult<TeamResponse>> CreateTeam([FromBody] CreateTeamCommand command)
